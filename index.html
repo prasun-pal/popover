@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- link rel="stylesheet" type="text/css" href="styles/core.css"  -->
+        
+        <script type="text/javascript" src="scripts/lib/jquery-1.7.2.js"></script>
+        <script type="text/javascript" src="scripts/prsn-popover.js"></script>
+        
+        <title>Popover testing</title>
+        <script>
+        var onClick = function(index, value){
+            console.log(index + " : " + value);
+        }    
+        function clickHandler(){
+                var settings = {values : ["Option 1", "Option 2", "Option 3"], color: "green", onClick: onClick};
+                $("#popoverSource").prsnPopover(settings);
+            }
+            
+            jQuery(document).ready(function(){
+                
+            });
+        </script>
+    </head>
+    <body>
+        <input style = "margin: 4px;" id="popoverSource" type="submit" name="submit" value="popover" onclick = "clickHandler();"/>
+    </body>
+</html>
