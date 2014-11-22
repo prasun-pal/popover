@@ -11,7 +11,7 @@
                 width : "210",
                 height : "auto",
                 color : "black",
-                background : "blue",
+                background : "white",
                 opacity : 1,
                 onClick : _click,
                 onHover : _hover
@@ -30,8 +30,8 @@
         padding.left = parseInt(this.css('padding-left'));
         var listMarkup = '<ul style="list-style-type: none;padding: 0px; margin: 5px 10px 5px 10px;">';;
         $.each(options.values, function(index, value){
-            listMarkup += '<li ind="' + index +  '" class="menu-popup-li" id="option' + index + '" style="cursor:pointer; " onMouseOver="this.style.background=\'#999966\'" onMouseOut="this.style.background=\'' + options.background + '\'">' 
-            + '<span style="color:' + options.color + '">' + value + '</span> </li>';
+            listMarkup += '<li ind="' + index +  '" class="menu-popup-li" id="option' + index + '" style="cursor:pointer;border-radius:1px 7px; padding:2px;" onMouseOver="this.style.background=\'#999966\'" onMouseOut="this.style.background=\'' + options.background + '\'">' 
+            + '<span style="color:' + options.color + '; ">' + value + '</span> </li>';
         });
         listMArkup = '</ul>';
         options.top = self.position().top;
@@ -56,7 +56,6 @@
             _hide();
         });
         
-        console.log(self.css('margin'));
         var _click = function(self, index, value){
             if(options.onClick){
                 options.onClick.call(self, index,value);
@@ -68,6 +67,10 @@
         var _hide = function(){
             $markup.remove();
         }
+        $(document).bind('click', function(){
+            _hide();
+        });
         self.parent().append($markup);
+        
     }
 })(jQuery);

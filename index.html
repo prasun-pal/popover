@@ -12,17 +12,21 @@
         var onClick = function(index, value){
             console.log(index + " : " + value);
         }    
-        function clickHandler(){
-                var settings = {values : ["Option 1", "Option 2", "Option 3"], color: "green", onClick: onClick};
-                $("#popoverSource").prsnPopover(settings);
+        function clickHandler(e){
+                var settings = {values : ["Option 1", "Option 2", "Option 3","Option 1","--", "Option 2", "Option 3"], color: "blue", onClick: onClick};
+                $(this).prsnPopover(settings);
+                e.preventDefault();
+                return false;
             }
             
             jQuery(document).ready(function(){
-                
+                $('#popoverSource').bind('click', clickHandler);
+                $('#popoverSourceLeft').bind('click', clickHandler);
             });
         </script>
     </head>
     <body>
-        <input style = "margin: 4px;" id="popoverSource" type="submit" name="submit" value="popover" onclick = "clickHandler();"/>
+        <input style = "margin: 4px; left: right;" id="popoverSourceLeft" type="submit" name="submit" value="popover"/>
+        <input style = "margin: 4px; float: right;" id="popoverSource" type="submit" name="submit" value="popover"/>
     </body>
 </html>
